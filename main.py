@@ -152,6 +152,7 @@ elif choose == "Generate User Story":
                             "jira_env": jira_env,
                             "code_lan": code_lan
                     }
+                    description = description.replace('\\', '\\\\').replace('"', "'").replace('\t','').replace('\n',"\\n")
                     res = create_user_story(jira_project_key, description, story)
                     us_id = res['id']
                     st.success(res['jira_ticket'] + ": " + res['jira_ticket_url'], icon="✅")
@@ -167,7 +168,8 @@ elif choose == "Generate User Story":
                             st.success("Generated Successfully ", icon="✅")
                             st.text_area('User Story Dev Task Description', value=dev_description)
                         else :
-                            res = create_sub_task(jira_project_key, dev_description, story,us_id,'dev')
+                            dev_description1 = dev_description.replace('\\', '\\\\').replace('"', "'").replace('\t','').replace('\n',"\\n")
+                            res = create_sub_task(jira_project_key, dev_description1, story,us_id,'dev')
                             st.success(res['jira_ticket'] + ": " + res['jira_ticket_url'], icon="✅")
                             st.text_area('User Story Dev Task Description', value=res['description'])
                             jira_ticket = res['jira_ticket']
@@ -180,6 +182,7 @@ elif choose == "Generate User Story":
                             st.success("Generated Successfully ", icon="✅")
                             st.text_area('User Story Test Task Description', value=test_description)
                         else:
+                            test_description = test_description.replace('\\', '\\\\').replace('"', "'").replace('\t','').replace('\n',"\\n")
                             res = create_sub_task(jira_project_key, test_description, story, us_id, 'test')
                             st.success(res['jira_ticket'] + ": " + res['jira_ticket_url'], icon="✅")
                             st.text_area('User Story Test Task Description', value=res['description'])
