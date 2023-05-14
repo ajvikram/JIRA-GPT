@@ -1,0 +1,15 @@
+{"fields":
+  {
+      "project":{
+          "key": "$project_key"
+          },
+      "summary": "$summary",
+      "description": "$description",
+      "assignee": {
+          "name": "$assignee"
+          },
+      "issuetype":{
+          "name": "Story"
+          }
+  }
+}

@@ -1,0 +1,18 @@
+{"fields":
+  {
+      "project":{
+          "key": "$project_key"
+          },
+      "summary": "$summary",
+      "description": "$description",
+      "parent": {
+          "id": "$parent_id"
+      },
+      "assignee": {
+          "name": "$assignee"
+          },
+      "issuetype":{
+          "name": "Sub-task"
+          }
+  }
+}

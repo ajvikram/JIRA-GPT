@@ -1,0 +1,8 @@
+venv
+venv/
+.venv
+.venv/
+.idea
+model/*.bin
+git_repo/
+__pycache__
